@@ -1,0 +1,11 @@
+<% if flash[:notice] %>
+<div class="fadeIn">
+  <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+    <div class="bg-blue-100 rounded-lg py-5 px-6 mb-4 text-base text-blue-600 mb-3" role="alert" data-controller="clipboard" data-clipboard-success-content="Copied!">
+      <input type="text" name="" value="<%= flash[:notice] %>" data-clipboard-target="source" style="all: unset;pointer-events:none;">
+      <button type="button" data-action="clipboard#copy" data-clipboard-target="button">Copy</button>
+    </div>
+  </div>
+  <p>Copy and share. <br> If you want see more data about your link go <a href="<%= flash[:notice] %>/visits" class="text-blue-600 hover:text-blue-700 transition duration-300 ease-in-out mb-4" target="_blank">here</a></p>
+</div>
+<% end %>

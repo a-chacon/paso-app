@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if ! command -v foreman &> /dev/null
+then
+  echo "Installing foreman..."
+  gem install foreman
+fi
+
+/home/andres/.rbenv/versions/3.0.2/bin/foreman start -f Procfile.dev
