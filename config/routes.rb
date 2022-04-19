@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   root "pages#home"
   post "/", to: "pages#home"
   get "/:key/visits", to: "visits#index"
+  get "/:key/visits/:id", to: "visits#show"
   mount RailsUrlShortener::Engine, at: "/"
 end
