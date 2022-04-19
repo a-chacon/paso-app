@@ -2,7 +2,7 @@
 
 Url shortener and Ip logger together. This app is build using the RailsUrlShortener engine.
 
-You can see the demo app [HERE]("https://paso-app.herokuapp.com/").
+You can see the demo app [HERE](https://paso-app.herokuapp.com/) .
 
 ## Getting Started
 
