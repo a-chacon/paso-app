@@ -2,7 +2,7 @@ class VisitsController < ApplicationController
 
   def index
     @url = RailsUrlShortener::Url.unexpired.where(owner: nil).find_by(key: params[:key])
-    @visits = @url.visits.order(id: :desc) unless !@url
+    @visits = @url.visits.order(id: :desc).includes(:ipgeo) unless !@url
   end
 
   def show

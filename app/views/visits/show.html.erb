@@ -60,86 +60,64 @@
       </div>
     </div>
 
-    <div class="mt-5 mb-5 p-5 rounded-lg border border-gray-200 w-full text-gray-900">
-      <div class="flex">
-        <ul class="grow bg-white rounded-lg text-gray-900">
-          <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg">
-            <span>Key:</span>
-            <%= @url.key %>
-          </li>
-          <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg" data-controller="clipboard" data-clipboard-success-content="Copied!">
-            <span>Url:</span>
-            <input type="text" class="w-96" value=" <%= @url.url %>" data-clipboard-target="source" style="all: unset;pointer-events:none;">
-            <button type="button" data-action="clipboard#copy" data-clipboard-target="button" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded-full">Copy</button>
-          </li>
-          <li class="px-6 py-2 border-b border-gray-200 w-full" data-controller="clipboard" data-clipboard-success-content="Copied!">
-            <span>Short:</span>
-            <input type="text" name="" value="<%= rails_url_shortener_url() + @url.key %>" data-clipboard-target="source" style="all: unset;pointer-events:none;">
-            <button type="button" data-action="clipboard#copy" data-clipboard-target="button" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded-full">Copy</button>
-          </li>
-          <li class="px-6 py-2 border-b border-gray-200 w-full">
-            <span>Expire in:</span>
-            <%= ((@url.expires_at.utc - Time.now)/60).ceil %>
-            minutes</li>
-        </ul>
+    <%= render "header" %>
+    
+    <div class="">
+      <div class="mt-5 mb-5 p-5 rounded-lg border border-gray-200 w-full text-gray-900">
+        <div class="flex">
+          <ul class="grow bg-white rounded-lg text-gray-900">
+            <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg">
+              <span class="font-bold">Ip:</span>
+              <%= @visit.ip %>
+            </li>
+            <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg" data-controller="clipboard" data-clipboard-success-content="Copied!">
+              <span class="font-bold">Browser:</span>
+              <%= @visit.browser + ' ' + @visit.browser_version %>
+            </li>
+            <li class="px-6 py-2 border-b border-gray-200 w-full" data-controller="clipboard" data-clipboard-success-content="Copied!">
+              <span class="font-bold">OS:</span>
+              <%= @visit.platform + ' ' + @visit.platform_version %>
+            </li>
+            <li class="px-6 py-2 border-b border-gray-200 w-full">
+              <span class="font-bold">Detected bot:</span>
+              <%= @visit.bot %>
+          </ul>
+          <ul class="grow bg-white rounded-lg text-gray-900">
+            <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg">
+              <span class="font-bold">Country:</span>
+              <%= @visit.ipgeo.country if !@visit.ipgeo.nil? %>
+            </li>
+            <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg" data-controller="clipboard" data-clipboard-success-content="Copied!">
+              <span class="font-bold">Region:</span>
+              <%= @visit.ipgeo.region_name if !@visit.ipgeo.nil? %>
+            </li>
+            <li class="px-6 py-2 border-b border-gray-200 w-full" data-controller="clipboard" data-clipboard-success-content="Copied!">
+              <span class="font-bold">City:</span>
+              <%= @visit.ipgeo.city if !@visit.ipgeo.nil? %>
+            </li>
+            <li class="px-6 py-2 border-b border-gray-200 w-full">
+              <span class="font-bold">ISP:</span>
+              <%= @visit.ipgeo.isp if !@visit.ipgeo.nil? %>
+          </ul>
+          <ul class="grow bg-white rounded-lg text-gray-900">
+            <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg">
+              <span class="font-bold">Mobile:</span>
+              <%= @visit.ipgeo.mobile if !@visit.ipgeo.nil? %>
+            </li>
+            <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg" data-controller="clipboard" data-clipboard-success-content="Copied!">
+              <span class="font-bold">Proxy:</span>
+              <%= @visit.ipgeo.proxy if !@visit.ipgeo.nil? %>
+            </li>
+            <li class="px-6 py-2 border-b border-gray-200 w-full" data-controller="clipboard" data-clipboard-success-content="Copied!">
+              <span class="font-bold">Hosting:</span>
+              <%= @visit.ipgeo.hosting if !@visit.ipgeo.nil? %>
+            </li>
+          </div>
+        </div>
       </div>
     </div>
-  <div class="">
-    <div class="mt-5 mb-5 p-5 rounded-lg border border-gray-200 w-full text-gray-900">
-      <div class="flex">
-        <ul class="grow bg-white rounded-lg text-gray-900">
-          <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg">
-            <span>Ip:</span>
-            <%= @visit.ip %>
-          </li>
-          <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg" data-controller="clipboard" data-clipboard-success-content="Copied!">
-            <span>Browser:</span>
-            <%= @visit.browser + ' ' + @visit.browser_version %>
-          </li>
-          <li class="px-6 py-2 border-b border-gray-200 w-full" data-controller="clipboard" data-clipboard-success-content="Copied!">
-            <span>OS:</span>
-            <%= @visit.platform + ' ' + @visit.platform_version %>
-          </li>
-          <li class="px-6 py-2 border-b border-gray-200 w-full">
-            <span>Detected bot:</span>
-            <%= @visit.bot %>
-        </ul>
-        <ul class="grow bg-white rounded-lg text-gray-900">
-          <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg">
-            <span>Country:</span>
-            <%= @visit.ipgeo.country if !@visit.ipgeo.nil? %>
-          </li>
-          <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg" data-controller="clipboard" data-clipboard-success-content="Copied!">
-            <span>Region:</span>
-            <%= @visit.ipgeo.region_name if !@visit.ipgeo.nil? %>
-          </li>
-          <li class="px-6 py-2 border-b border-gray-200 w-full" data-controller="clipboard" data-clipboard-success-content="Copied!">
-            <span>City:</span>
-            <%= @visit.ipgeo.city if !@visit.ipgeo.nil? %>
-          </li>
-          <li class="px-6 py-2 border-b border-gray-200 w-full">
-            <span>ISP:</span>
-            <%= @visit.ipgeo.isp if !@visit.ipgeo.nil? %>
-        </ul>
-        <ul class="grow bg-white rounded-lg text-gray-900">
-          <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg">
-            <span>Mobile:</span>
-            <%= @visit.ipgeo.mobile if !@visit.ipgeo.nil? %>
-          </li>
-          <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg" data-controller="clipboard" data-clipboard-success-content="Copied!">
-            <span>Proxy:</span>
-            <%= @visit.ipgeo.proxy if !@visit.ipgeo.nil? %>
-          </li>
-          <li class="px-6 py-2 border-b border-gray-200 w-full" data-controller="clipboard" data-clipboard-success-content="Copied!">
-            <span>Hosting:</span>
-            <%= @visit.ipgeo.hosting if !@visit.ipgeo.nil? %>
-          </li>
-      </div>
+  <% else %>
+    <div class="grid place-items-center h-screen">
+      <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">This link don't exist or has expired.</h1>
     </div>
-  </div>
-  </div>
-<% else %>
-  <div class="grid place-items-center h-screen">
-    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">This link don't exist or has expired.</h1>
-  </div>
-<% end %>
+  <% end %>
