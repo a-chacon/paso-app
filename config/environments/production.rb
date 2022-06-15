@@ -90,7 +90,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
-  # remove this validation becouse the proxy of cloudflare make the requests fail for now
-  config.action_controller.forgery_protection_origin_check = false
 end
