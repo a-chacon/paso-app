@@ -3,8 +3,8 @@ class PagesController < ApplicationController
 
   def home
     unless params[:url].nil?
-      flash.now[:notice] = short_url(params[:url], expires_at: Time.now + 12.hour)
-      render turbo_stream: turbo_stream.update('flash', partial: 'shared/flash')
+      # only redirect to the visits page
+      redirect_to "#{short_url(params[:url], expires_at: Time.now + 12.hour)}/visits"
     end
   end
 end

@@ -1,199 +1,65 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
-<div class="relative bg-white overflow-hidden">
-  <div class="max-w-7xl mx-auto h-screen">
-    <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 h-screen">
-      <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewbox="0 0 100 100" preserveaspectratio="none" aria-hidden="true">
-        <polygon points="50,0 100,0 50,100 0,100"/>
-      </svg>
+<section id="main" class="h-[92vh] bg-[url('/layered-steps-haikei.svg')] bg-cover bg-center bg-repeat-x" >
+  <div class="container mx-auto w-5/6 md:w-2/3  pt-10 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-28">
+    <h1 class="text-center text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+      <span>Simplify yours links</span>
+    </h1>
+    <h2 class="text-center text-4xl font-extrabold text-blue-600 sm:text-5xl md:text-6xl">
+      Share and grab your visitors
+    </h2>
+    <p class="text-center max-w-lg mt-3 text-gray-500 sm:mt-5 block md:mt-5 mx-auto">This app can short your links and grab data about your visitors. Try it inserting your link in the next field, copy the short link and share it wherever you want!
+    </p>
 
-      <div>
-        <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
-          <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
-            <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-              <div class="flex items-center justify-between w-full md:w-auto">
-                <a href="/">
-                  <span class="sr-only">Workflow</span>
-                  <img class="h-10 w-auto sm:h-12" src="/cut.png">
-                </a>
-                <div class="-mr-2 flex items-center md:hidden">
-                  <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <!-- Heroicon name: outline/menu -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Shorten</a>
-
-              <a href="#aboutit" class="font-medium text-gray-500 hover:text-gray-900">About it</a>
-
-              <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Log in</a>
-            </div>
-          </nav>
-        </div>
-
-        <!-- Mobile menu, show/hide based on menu open state. Entering: "duration-150 ease-out" From: "opacity-0 scale-95" To: "opacity-100 scale-100" Leaving: "duration-100 ease-in" From: "opacity-100 scale-100" To: "opacity-0 scale-95" -->
-        <!-- <div class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-          <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-            <div class="px-5 pt-4 flex items-center justify-between">
-              <div>
-                <img class="h-8 w-auto" src="/cut.png" alt="">
-              </div>
-              <div class="-mr-2">
-                <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-                  <span class="sr-only">Close main menu</span>
-
-                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="px-2 pt-2 pb-3 space-y-1">
-              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Shorten</a>
-
-              <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Features</a>
-
-            </div>
-            <a href="#" class="block w-full px-5 py-3 text-center font-medium text-blue-600 bg-gray-50 hover:bg-gray-100">
-              Log in
-            </a>
-          </div>
-        </div> -->
+    <%= form_with url: "/" do |form| %>
+    <div class="mt-5 sm:mt-8 flex justify-center">
+      <div class="shadow-md">
+        <input name="url" class="focus:ring-2 focus:ring-blue-600 focus:outline-none appearance-none w-ful md:px-10l text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm md:py-3 md:text-lg"
+          type="text" placeholder="Write a url here.">
       </div>
-
-      <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-        <div class="sm:text-center lg:text-left">
-          <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            <span class="block xl:inline">Short your links and</span>
-            <span class="block text-blue-600 xl:inline">see what happens</span>
-          </h1>
-          <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">This is a simple app for short your links, you can try a minimal version of it for free using the next input. This is an entire opensource project so you can find the code
-            <a href="https://github.com/a-chacon/paso-app.git" target="_blank">here</a>.</p>
-          <%= form_with url: "/" do |form| %>
-          <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-            <div class="shadow-md">
-              <input
-                name="url"
-                class="focus:ring-2 focus:ring-blue-600 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm md:py-4 md:text-lg md:px-10"
-                type="text"
-                placeholder="shorten your link">
-            </div>
-            <div class="mt-3 sm:mt-0 sm:ml-3 rounded-md shadow-md">
-              <input name="commit" type="submit" value="shorten" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
-            </div>
-          </div>
-        <% end %>
-        <turbo-frame id="flash">
-          <%= render 'shared/flash' %>
-        </turbo-frame>
+      <div class="ml-1 sm:ml-3 rounded-md shadow-md">
+        <input name="commit" type="submit" value="shorten" class="w-full px-6 md:px-8  py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-3 md:text-lg">
       </div>
-    </main>
+    </div>
+    <% end %>
+
+    <turbo-frame id="flash">
+      <%= render 'shared/flash' %>
+    </turbo-frame>
   </div>
-</div>
-<div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-  <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="main.jpeg" alt="">
-</div>
-</div>
+</section>
 
-<section id="aboutit" class="h-screen">
-
-<div class="max-w-screen-xl mx-auto p-8">
-
-  <div class="bg-lightblue py-20 px-4">
-    <div class="mx-auto max-w-6xl flex flex-col md:flex-row">
-      <h2 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+<section id="aboutit" class="">
+    <div class="container mx-auto w-5/6 md:w-2/3  pt-10 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-28 flex flex-wrap">
+      <h2 class="mx-auto text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl pb-10 sm:pb-12 md:pb-16 lg:pb-20 xl:pb-28">
         About the project
       </h2>
-      <dl class="w-full md:w-2/3">
+      <dl class="mx-auto">
         <dt class="mb-4">
-          <h3 class="text-xl font-bold">
-            What is this?
-          </h3>
+          <h3 class="text-xl font-bold"> What is this? </h3>
         </dt>
-        <dd class="mb-16 mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-          <p>
-            Paso is a URL Shortener with advanced analytics for the traffic through your links, visitors on your blog, forum or website. This is build using the <a href="https://github.com/a-chacon/rails_url_shortener" target="_blank">RailsUrlShortener</a> engine.
-          </p>
-        </dd>
-        <dt class="mb-4">
-          <h3 class="text-xl font-bold">
-            Features
-          </h3>
+        <dd class="mb-16 mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl
+lg:mx-0">
+          <p> Paso is a URL Shortener with advanced analytics for the traffic through your links, visitors on your blog, forum or website. This is build using the <a href="https://github.com/a-chacon/rails_url_shortener"
+              target="_blank">RailsUrlShortener</a> engine. </p>
+        </dd> <dt class="mb-4">
+          <h3 class="text-xl font-bold"> Features </h3>
         </dt>
         <dd class="mb-16 mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
           <p>
             For now we can log the next information about the visits on your link:
-            <ul class="list-disc pt-1">
-              <li class="">Ip and related information like: geolocation, ISP.</li>
-              <li class="">User Agent and related information: Browser, OS, is a bot.</li>
-            </ul>
+          <ul class="list-disc pt-1">
+            <li class="">Ip and related information like: geolocation, ISP.</li>
+            <li class="">User Agent and related information: Browser, OS, is a bot.</li>
+          </ul>
           </p>
-        </dd>
-        <dt class="mb-4">
-          <h3 class="text-xl font-bold">
-            Support this project.
-          </h3>
+        </dd> <dt class="mb-4">
+          <h3 class="text-xl font-bold"> Support this project. </h3>
         </dt>
         <dd class="mb-16 mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-          <p>
-            This is an experimental project and will be running on free servers, so it will be limited.
-            You can build your own Url Shortener or Ip logger using the RailsUrlShortener engine and help to build new features for that library or for this project. If you like, at least give it a start.
+          <p> This is an experimental project and
+            will be running on free servers, so it will be limited. You can build your own Url Shortener or Ip logger using the RailsUrlShortener engine and help to build new features for that library or for this project. If you like, at least give
+            it a start.
           </p>
         </dd>
       </dl>
     </div>
-  </div>
-
-  <footer class="px-3 py-8 bg-white dark:bg-gray-800 text-2 text-gray-500 dark:text-gray-200 transition-colors duration-200">
-    <div class="flex flex-col">
-      <div class="md:hidden mt-7 mx-auto w-11 h-px rounded-full"></div>
-      <div class="mt-4 md:mt-0 flex flex-col md:flex-row">
-        <nav class="flex-1 flex flex-col items-center justify-center md:items-end md:border-r border-gray-100 md:pr-5">
-          <a aria-current="page" target="_blank" href="https://github.com/a-chacon/rails_url_shortener" class="hover:text-gray-700 dark:hover:text-white">
-            RailsUrlShortener
-          </a>
-          <a aria-current="page" target="_blank" href="mailto: andres.ch@protonmail.com" class="hover:text-gray-700 dark:hover:text-white">
-            Contact
-          </a>
-          <!-- <a aria-current="page" target="_blank" href="#" class="hover:text-gray-700 dark:hover:text-white"> Customization </a> -->
-        </nav>
-        <div class="md:hidden mt-4 mx-auto w-11 h-px rounded-full"></div>
-        <div class="mt-4 md:mt-0 flex-1 flex items-center justify-center md:border-r border-gray-100">
-          <a class="hover:text-primary-gray-20" href="https://github.com/a-chacon/paso-app">
-            <span class="sr-only">
-              Github link.
-            </span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-xl hover:text-gray-800 dark:hover:text-white transition-colors duration-200" viewbox="0 0 1792 1792">
-              <path
-                d="M896 128q209 0 385.5 103t279.5 279.5 103 385.5q0 251-146.5 451.5t-378.5 277.5q-27 5-40-7t-13-30q0-3 .5-76.5t.5-134.5q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-119-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-85-13.5q-45 113-8 204-79 87-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-39 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 88.5t.5 54.5q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103zm-477 1103q3-7-7-12-10-3-13 2-3 7 7 12 9 6 13-2zm31 34q7-5-2-16-10-9-16-3-7 5 2 16 10 10 16 3zm30 45q9-7 0-19-8-13-17-6-9 5 0 18t17 7zm42 42q8-8-4-19-12-12-20-3-9 8 4 19 12 12 20 3zm57 25q3-11-13-16-15-4-19 7t13 15q15 6 19-6zm63 5q0-13-17-11-16 0-16 11 0 13 17 11 16 0 16-11zm58-10q-2-11-18-9-16 3-14 15t18 8 14-14z"></path>
-            </svg>
-
-          </a>
-          <!-- <a class="ml-4 hover:text-primary-gray-20" href="#"> <span class="sr-only"> Settings </span> <svg width="30" height="30" fill="currentColor" class="text-xl hover:text-gray-800 dark:hover:text-white transition-colors duration-200" viewBox="0 0
-          2048 1792" xmlns="http://www.w3.org/2000/svg"> <path d="M960 896q0-106-75-181t-181-75-181 75-75 181 75 181 181 75 181-75 75-181zm768 512q0-52-38-90t-90-38-90 38-38 90q0 53 37.5 90.5t90.5 37.5 90.5-37.5 37.5-90.5zm0-1024q0-52-38-90t-90-38-90 38-38
-          90q0 53 37.5 90.5t90.5 37.5 90.5-37.5 37.5-90.5zm-384 421v185q0 10-7 19.5t-16 10.5l-155 24q-11 35-32 76 34 48 90 115 7 11 7 20 0 12-7 19-23 30-82.5 89.5t-78.5 59.5q-11 0-21-7l-115-90q-37 19-77 31-11 108-23 155-7 24-30 24h-186q-11
-          0-20-7.5t-10-17.5l-23-153q-34-10-75-31l-118 89q-7 7-20 7-11 0-21-8-144-133-144-160 0-9 7-19 10-14 41-53t47-61q-23-44-35-82l-152-24q-10-1-17-9.5t-7-19.5v-185q0-10 7-19.5t16-10.5l155-24q11-35 32-76-34-48-90-115-7-11-7-20 0-12 7-20 22-30 82-89t79-59q11
-          0 21 7l115 90q34-18 77-32 11-108 23-154 7-24 30-24h186q11 0 20 7.5t10 17.5l23 153q34 10 75 31l118-89q8-7 20-7 11 0 21 8 144 133 144 160 0 8-7 19-12 16-42 54t-45 60q23 48 34 82l152 23q10 2 17 10.5t7 19.5zm640 533v140q0 16-149 31-12 27-30 52 51 113 51
-          138 0 4-4 7-122 71-124 71-8 0-46-47t-52-68q-20 2-30 2t-30-2q-14 21-52 68t-46 47q-2 0-124-71-4-3-4-7 0-25 51-138-18-25-30-52-149-15-149-31v-140q0-16 149-31 13-29 30-52-51-113-51-138 0-4 4-7 4-2 35-20t59-34 30-16q8 0 46 46.5t52 67.5q20-2 30-2t30
-          2q51-71 92-112l6-2q4 0 124 70 4 3 4 7 0 25-51 138 17 23 30 52 149 15 149 31zm0-1024v140q0 16-149 31-12 27-30 52 51 113 51 138 0 4-4 7-122 71-124 71-8 0-46-47t-52-68q-20 2-30 2t-30-2q-14 21-52 68t-46 47q-2 0-124-71-4-3-4-7 0-25
-          51-138-18-25-30-52-149-15-149-31v-140q0-16 149-31 13-29 30-52-51-113-51-138 0-4 4-7 4-2 35-20t59-34 30-16q8 0 46 46.5t52 67.5q20-2 30-2t30 2q51-71 92-112l6-2q4 0 124 70 4 3 4 7 0 25-51 138 17 23 30 52 149 15 149 31z"> </path> </svg> </a> -->
-        </div>
-        <div class="md:hidden mt-4 mx-auto w-11 h-px rounded-full "></div>
-        <div class="mt-7 md:mt-0 flex-1 flex flex-col items-center justify-center md:items-start md:pl-5">
-          <span class="mt-7 md:mt-1">
-            Created by
-            <a class="underline hover:text-primary-gray-20" href="https://github.com/a-chacon">
-              a-chacon
-            </a>
-          </span>
-        </div>
-      </div>
-    </div>
-  </footer>
-
 </section>
