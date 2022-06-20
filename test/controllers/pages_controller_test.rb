@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
   test 'get the home' do
@@ -7,7 +7,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'generate a short url' do
-    assert_difference("RailsUrlShortener::Url.count") do
+    assert_difference('RailsUrlShortener::Url.count') do
       post '/?url=https://a-chacon.com'
     end
     url = RailsUrlShortener::Url.last
@@ -15,9 +15,9 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'input and invalid url' do
-    assert_no_difference("RailsUrlShortener::Url.count") do
+    assert_no_difference('RailsUrlShortener::Url.count') do
       post '/?url=a-chacon'
     end
-    assert_equal "It is not a valid url.", flash[:error]
+    assert_equal 'It is not a valid url.', flash[:error]
   end
 end

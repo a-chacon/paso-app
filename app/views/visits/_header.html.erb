@@ -18,8 +18,7 @@
     <ul class="grow bg-white rounded-lg text-gray-900">
       <li class="px-6 py-2 border-b border-gray-200">
         <span class="font-bold">Expire in:</span>
-        <%= ((@url.expires_at.utc - Time.now)/3600).round(1) %>
-        hours
+        <%= @url.expires_at.nil? ? 'never' : ((@url.expires_at.utc - Time.now)/3600).round(1).to_s + 'hours' %>
       </li>
       <li class="px-6 py-2 border-b border-gray-200">
         <span class="font-bold">Status Url:</span>
