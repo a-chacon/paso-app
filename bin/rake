@@ -2,7 +2,3 @@
 require_relative '../config/boot'
 require 'rake'
 Rake.application.run
-
-RuboCop::RakeTask.new do |task|
-  task.requires << 'rubocop-rails'
-end
