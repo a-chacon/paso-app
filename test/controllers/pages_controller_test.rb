@@ -8,7 +8,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
 
   test 'generate a short url' do
     assert_difference('RailsUrlShortener::Url.count') do
-      post '/?url=https://a-chacon.com'
+      post '/generate?url=https://a-chacon.com'
     end
     url = RailsUrlShortener::Url.last
     assert_redirected_to "/#{url.key}/visits"
@@ -16,7 +16,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
 
   test 'input and invalid url' do
     assert_no_difference('RailsUrlShortener::Url.count') do
-      post '/?url=a-chacon'
+      post '/generate?url=a-chacon'
     end
     assert_equal 'It is not a valid url.', flash[:error]
   end

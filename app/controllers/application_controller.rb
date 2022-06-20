@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
                      end
       redirect_to redirect_url, allow_other_host: true
     else
-      flash.now[:error] = 'It is no´t a valid url.'
+      flash.now[:error] = 'It is not a valid url.'
       render turbo_stream: turbo_stream.update('flash', partial: 'shared/flash')
     end
   end
