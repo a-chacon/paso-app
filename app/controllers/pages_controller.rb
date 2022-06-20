@@ -1,10 +1,12 @@
 class PagesController < ApplicationController
-  include RailsUrlShortener::UrlsHelper
+  before_action :require_authentication, except: [:main]
 
+  def main; end
+
+  # this page will be show all short urls created by a user and will redirect to visits pages
   def home
-    unless params[:url].nil?
-      # only redirect to the visits page
-      redirect_to "#{short_url(params[:url], expires_at: Time.now + 12.hour)}/visits"
-    end
+    @urls = @current_user.urls.includes(:visits)
   end
+
+  def generate; end
 end

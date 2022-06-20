@@ -3,4 +3,22 @@ AllCops:
   TargetRubyVersion: 3.0
   # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
   # to ignore them, so only the ones explicitly set in this file are enabled.
-  DisabledByDefault: true
+  DisabledByDefault: false
+
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'app/views/**/*'
+
+  require: rubocop-rails
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

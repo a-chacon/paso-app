@@ -1,0 +1,13 @@
+<% if flash[:errors] %>
+<div class="fadeIn">
+  <div class="mt-5 flex justify-center">
+    <div class="w-full bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-600 mb-3" role="alert">
+      <ul class="list-disc">
+      <% flash[:errors].each do |err|%>
+        <li><%= err.attribute.to_s + " " + err.message %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<% end %>
