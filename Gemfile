@@ -76,3 +76,5 @@ gem 'rails_url_shortener'
 gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'figaro'
+
+gem 'rubocop-rails', require: false
