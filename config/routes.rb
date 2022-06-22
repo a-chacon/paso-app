@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'pages#main'
   post '/generate', to: 'application#generate'
-  get '/home', to: 'pages#home'
+  get '/home', to: 'pages#home', as: :home
   get '/generate', to: 'pages#generate'
   resources :users, only: [:new, :create, :update]
   scope 'auth' do

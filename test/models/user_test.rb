@@ -40,4 +40,9 @@ class UserTest < ActiveSupport::TestCase
     )
     assert_equal 1, user.urls.count
   end
+
+  test 'authenticate' do
+    assert User.authenticate(email: 'one@test.cl', password: 'Test12345')
+    assert_not User.authenticate(email: 'one@test.cl', password: 'Test1234')
+  end
 end

@@ -1,23 +1,30 @@
 require 'test_helper'
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
-  test 'get the home' do
+  test 'main' do
     get '/'
     assert_response :success
   end
 
-  test 'generate a short url' do
-    assert_difference('RailsUrlShortener::Url.count') do
-      post '/generate?url=https://a-chacon.com'
-    end
-    url = RailsUrlShortener::Url.last
-    assert_redirected_to "/#{url.key}/visits"
+  test 'home without session' do
+    get '/home'
+    assert_redirected_to root_path
   end
 
-  test 'input and invalid url' do
-    assert_no_difference('RailsUrlShortener::Url.count') do
-      post '/generate?url=a-chacon'
-    end
-    assert_equal 'It is not a valid url.', flash[:error]
+  test 'home' do
+    sign_in_as(:one)
+    get '/home'
+    assert_response :success
+  end
+
+  test 'generate without session' do
+    get '/generate'
+    assert_redirected_to root_path
+  end
+
+  test 'generate' do
+    sign_in_as(:one)
+    get '/generate'
+    assert_response :success
   end
 end
