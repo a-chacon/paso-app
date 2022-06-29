@@ -131,6 +131,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.0)
+    minitest-cc (0.1.0)
     msgpack (1.5.2)
     mysql2 (0.5.4)
     net-imap (0.2.3)
@@ -269,6 +270,7 @@ DEPENDENCIES
   debug
   figaro
   importmap-rails
+  minitest-cc
   mysql2 (~> 0.5)
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)

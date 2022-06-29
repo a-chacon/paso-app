@@ -78,3 +78,5 @@ gem 'tailwindcss-rails', '~> 2.0'
 gem 'figaro'
 
 gem 'rubocop-rails', require: false
+
+gem 'minitest-cc'
