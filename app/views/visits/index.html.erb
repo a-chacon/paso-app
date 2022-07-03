@@ -3,8 +3,8 @@
   <div class="max-w-7xl mx-auto h-screen">
     <%= render "header" %>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-10">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
           <tr>
             <th scope="col" class="text-sm font-medium px-6 py-4">
               IP
@@ -28,7 +28,7 @@
         </thead>
         <tbody>
           <% @visits.each_with_index do |v, i| %>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <tr class="bg-white border-b hover:bg-gray-50 ">
               <td class="font-bold px-6 py-4">
                 <%= v.ip %>
               </td>
@@ -45,7 +45,7 @@
                 <%= v.created_at %>
               </td>
               <td class="px-6 py-4 text-right">
-                <a href="<%= "./visits/#{v.id}" %>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Detail</a>
+                <a href="<%= "./visits/#{v.id}" %>" class="font-medium text-blue-600 hover:underline">Detail</a>
               </td>
             </tr>
           <% end %>
