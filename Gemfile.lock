@@ -160,6 +160,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.4)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-test (2.0.2)
       rack (>= 1.3)
     rails (7.0.3)
@@ -275,6 +277,7 @@ DEPENDENCIES
   minitest-cc
   mysql2 (~> 0.5)
   puma (~> 5.0)
+  rack-cors
   rails (~> 7.0.2, >= 7.0.2.3)
   rails_url_shortener
   rubocop-rails

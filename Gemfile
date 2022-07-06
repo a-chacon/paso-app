@@ -80,3 +80,5 @@ gem 'figaro'
 gem 'rubocop-rails', require: false
 
 gem 'minitest-cc'
+
+gem 'rack-cors'
