@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :verify_captcha, only: [:create]
+
   def new
     @user = User.new
   end
