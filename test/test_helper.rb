@@ -1,9 +1,10 @@
-require "minitest/cc"
+require 'minitest/cc'
 Minitest::Cc.start
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'webmock/minitest'
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
@@ -12,12 +13,27 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  def stub_captcha_request(response: 'pop', to_return: false)
+    stub_request(:post, ENV['VERIFY_URL'])
+      .with(
+        body: { 'response' => response, 'secret' => ENV['SECRET_KEY'] },
+        headers: { 'Connection' => 'close', 'Content-Type' => 'application/x-www-form-urlencoded',
+                   'Host' => 'hcaptcha.com', 'User-Agent' => 'http.rb/5.1.0' }
+      ).to_return(status: 200, body: %(
+          {
+            "success": "#{to_return}"
+          }
+        ), headers: {})
+  end
+
   # Add more helper methods to be used by all tests here...
   def sign_in_as(name)
     @user = users(name)
+    stub_captcha_request(response: 'P0_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9', to_return: true)
     post '/auth/login', params: {
       email: @user.email,
-      password: 'Test12345'
+      password: 'Test12345',
+      "g-recaptcha-response": 'P0_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9'
     }
   end
 

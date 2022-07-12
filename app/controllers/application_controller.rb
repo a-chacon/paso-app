@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include RailsUrlShortener::UrlsHelper
   require 'uri'
+  require 'http'
+  require 'json'
 
   before_action :current_user
 
@@ -25,5 +27,17 @@ class ApplicationController < ActionController::Base
 
   def require_authentication
     redirect_to root_url if @current_user.nil?
+  end
+
+  def verify_captcha
+    data = { 'secret': ENV['SECRET_KEY'], 'response': params[:"g-recaptcha-response"] }
+
+    response = HTTP.post(ENV['VERIFY_URL'], form: data)
+    response_json = JSON.parse(response)
+
+    return if ActiveModel::Type::Boolean.new.cast(response_json['success'])
+
+    flash.now[:errors] = [OpenStruct.new(attribute: 'Captcha', message: ': Could not be verify')]
+    render turbo_stream: turbo_stream.update('errors', partial: 'shared/errors')
   end
 end

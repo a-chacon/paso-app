@@ -1,4 +1,6 @@
 class AuthenticationController < ApplicationController
+  before_action :verify_captcha, only: [:create]
+
   def new
     redirect_to '/home' if @current_user
   end

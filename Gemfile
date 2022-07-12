@@ -69,6 +69,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'webmock'
 end
 
 gem 'rails_url_shortener'
@@ -82,3 +83,5 @@ gem 'rubocop-rails', require: false
 gem 'minitest-cc'
 
 gem 'rack-cors'
+
+gem 'http'
