@@ -33,7 +33,7 @@
         <%= form.submit 'Sign In', class: "mt-8 px-6 md:px-8 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:text-lg" %>
       </p>
       <% end %>
-      <turbo-frame id="errors">
+      <turbo-frame id="errors" data-action="turbo:before-stream-render@window->captcha#reset">
         <%= render 'shared/errors' %>
       </turbo-frame>
       </div>
