@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
 
     return if ActiveModel::Type::Boolean.new.cast(response_json['success'])
 
-    flash.now[:errors] = [OpenStruct.new(attribute: 'hCaptcha', message: 'Could not be verify')]
+    flash.now[:errors] = [OpenStruct.new(attribute: 'Captcha', message: ': Could not be verify')]
     render turbo_stream: turbo_stream.update('errors', partial: 'shared/errors')
   end
 end
