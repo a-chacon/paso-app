@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/generate', to: 'application#generate'
   get '/home', to: 'pages#home', as: :home
   get '/generate', to: 'pages#generate'
-  resources :users, only: [:new, :create, :update]
+  resources :users, only: %i[new create update]
   scope 'auth' do
     get '/', to: 'authentication#new', as: :login
     post '/login', to: 'authentication#create'
