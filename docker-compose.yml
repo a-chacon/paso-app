@@ -8,8 +8,6 @@ services:
             MYSQL_DATABASE: app
             MYSQL_USER: admin
             MYSQL_PASSWORD: password
-        ports:
-            - 3307:3306
     app: 
         build: .
         volumes: 
@@ -17,8 +15,6 @@ services:
         ports: 
             - 3001:3000
         depends_on:
-            - db
-        links:
             - db
         environment:
             HOST: localhost:3001
