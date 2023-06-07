@@ -15,11 +15,4 @@ Rails.configuration.to_prepare do
   RailsUrlShortener::Visit.class_eval {
     broadcasts_to ->(visit) { :visits_list }, partial: "shared/visit", target: "visits"
   }
-  # WARNING
-  # This was made only for workaround a problem with docker and nginx.
-  ActionDispatch::Request.class_eval {
-    def ip
-      get_header("X-Real-IP") || @ip || super
-    end
-  }
 end
