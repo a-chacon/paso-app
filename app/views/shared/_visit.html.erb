@@ -1,0 +1,20 @@
+<tr class="bg-white border-b hover:bg-gray-50 ">
+  <td class="font-bold px-6 py-4">
+    <%= visit.ip %>
+  </td>
+  <td class="px-6 py-4">
+    <%= visit.ipgeo.country if !visit.ipgeo.nil? %>
+  </td>
+  <td class="px-6 py-4">
+    <%= visit.browser + " " + visit.browser_version %>
+  </td>
+  <td class="px-6 py-4">
+    <%= visit.platform + " " + visit.platform_version %>
+  </td>
+  <td class="px-6 py-4">
+    <%= visit.created_at %>
+  </td>
+  <td class="px-6 py-4 text-right">
+    <a href="<%= "./visits/#{visit.id}" %>" class="font-medium text-blue-600 hover:underline">Detail</a>
+  </td>
+</tr>

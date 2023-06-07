@@ -1,7 +1,7 @@
 CHARSETS = {
-  alphanum: ('a'..'z').to_a + (0..9).to_a,
-  alphacase: ('a'..'z').to_a + ('A'..'Z').to_a,
-  alphanumcase: ('A'..'Z').to_a + ('a'..'z').to_a  + (0..9).to_a
+  alphanum: ("a".."z").to_a + (0..9).to_a,
+  alphacase: ("a".."z").to_a + ("A".."Z").to_a,
+  alphanumcase: ("A".."Z").to_a + ("a".."z").to_a + (0..9).to_a,
 }
 
 RailsUrlShortener.host = ENV["HOST"] || "localhost:3000"           # the host used for the helper
@@ -10,3 +10,9 @@ RailsUrlShortener.charset = CHARSETS[:alphanumcase] # used for generate the keys
 RailsUrlShortener.key_length = 6                    # Key length for random generator
 RailsUrlShortener.minimum_key_length = 3            # minimun permited for a key
 RailsUrlShortener.save_bots_visits = false          # if save bots visits
+
+Rails.configuration.to_prepare do
+  RailsUrlShortener::Visit.class_eval {
+    broadcasts_to ->(visit) { :visits_list }, partial: "shared/visit", target: "visits"
+  }
+end

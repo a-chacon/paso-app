@@ -26,29 +26,9 @@
             </th>
           </tr>
         </thead>
-        <tbody>
-          <% @visits.each_with_index do |v, i| %>
-            <tr class="bg-white border-b hover:bg-gray-50 ">
-              <td class="font-bold px-6 py-4">
-                <%= v.ip %>
-              </td>
-              <td class="px-6 py-4">
-                <%= v.ipgeo.country if !v.ipgeo.nil? %>
-              </td>
-              <td class="px-6 py-4">
-                <%= v.browser + " " + v.browser_version %>
-              </td>
-              <td class="px-6 py-4">
-                <%= v.platform + " " + v.platform_version %>
-              </td>
-              <td class="px-6 py-4">
-                <%= v.created_at %>
-              </td>
-              <td class="px-6 py-4 text-right">
-                <a href="<%= "./visits/#{v.id}" %>" class="font-medium text-blue-600 hover:underline">Detail</a>
-              </td>
-            </tr>
-          <% end %>
+        <%= turbo_stream_from "visits_list" %>
+          <tbody id="visits">
+            <%= render partial: "shared/visit", collection: @visits %>
         </tbody>
       </table>
     </div>
