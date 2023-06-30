@@ -1,28 +1,14 @@
 version: '3'
 services:
-    db: 
-        image: mysql:latest
-        restart: always
-        environment:
-            MYSQL_ROOT_PASSWORD: password
-            MYSQL_DATABASE: app
-            MYSQL_USER: admin
-            MYSQL_PASSWORD: password
     app: 
         build: .
         volumes: 
             - .:/app
         ports: 
-            - 3001:3000
-        depends_on:
-            - db
+            - 9000:3000
         environment:
-            HOST: localhost:3001
+            HOST: https://s.a-chacon.com
             RAILS_ENV: production
-            DB_USER: admin
-            DB_NAME: app
-            DB_PASSWORD: password
-            DB_HOST: db
             SECRET_KEY: "0xBBb166E8989a9070013A8f3f26504893586D45C2"
             VERIFY_URL: https://hcaptcha.com/siteverify
             RAILS_LOG_TO_STDOUT: true

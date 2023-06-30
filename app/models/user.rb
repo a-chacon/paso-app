@@ -8,6 +8,10 @@ class User < ApplicationRecord
   validates :password, presence: true, confirmation: true, on: :create
   validates :password_confirmation, presence: true, on: :create
 
+  ## Authenticate a user with email and password
+  # @param email [String] Email of user.
+  # @param password [String] Password encrypted of user.
+  # @return [User] the user object.
   def self.authenticate(email: String, password: String)
     find_by(email: email)&.authenticate(password)
   end
