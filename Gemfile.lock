@@ -285,7 +285,7 @@ DEPENDENCIES
   http
   importmap-rails
   minitest-cc
-  mysql2
+  mysql2 (~> 0.5)
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.3)
