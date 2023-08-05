@@ -140,6 +140,7 @@ GEM
     minitest (5.18.1)
     minitest-cc (1.0.0)
     msgpack (1.7.1)
+    mysql2 (0.5.5)
     net-imap (0.3.6)
       date
       net-protocol
@@ -283,6 +284,7 @@ DEPENDENCIES
   http
   importmap-rails
   minitest-cc
+  mysql2 (~> 0.5)
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.3)
