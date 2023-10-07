@@ -45,6 +45,5 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  adapter: mysql2
-  encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  <<: *default
+  database: db/production.sqlite3

@@ -10,7 +10,7 @@ gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 gem 'sprockets-rails'
 
 # Use mysql as the database for Active Record
-gem 'mysql2', '~> 0.5'
+# gem 'mysql2', '~> 0.5'
 
 gem 'sqlite3'
 
@@ -87,3 +87,9 @@ gem 'minitest-cc'
 gem 'rack-cors'
 
 gem 'http'
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "sentry-ruby", "~> 5.11"
+
+gem "sentry-rails", "~> 5.11"
