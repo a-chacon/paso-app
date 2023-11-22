@@ -1,6 +1,6 @@
-# [Paso App](https://paso-app.herokuapp.com/)
+# [Paso App](https://paso.fly.dev/)
 
-This is a very simple Rails App build for show how works the RailsUrlShortener engine and what you can do with it.
+This is a very simple Rails App build for show how works the [RailsUrlShortener](https://github.com/a-chacon/rails-url-shortener) engine and what you can do with it.
 
 **Don't hope this will be perfec** It is not responsive and it is a very basic app. So if you want to complete feel free to fork.
 
