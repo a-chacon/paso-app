@@ -2,10 +2,10 @@ class AuthenticationController < ApplicationController
   before_action :verify_captcha, only: [:create]
 
   def new
+    @user = User.new
     redirect_to '/home' if @current_user
   end
 
-  # "Create" a login, aka "log the user in"
   def create
     if (user = User.authenticate(email: params[:email], password: params[:password]))
       session[:user_id] = user.id

@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_16_224131) do
-  create_table "rails_url_shortener_ipgeos", charset: "utf8mb4", force: :cascade do |t|
+ActiveRecord::Schema[7.2].define(version: 2025_04_14_201402) do
+  create_table "rails_url_shortener_ipgeos", force: :cascade do |t|
     t.string "ip"
     t.string "country"
     t.string "country_code"
@@ -31,9 +31,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_224131) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "rails_url_shortener_urls", charset: "utf8mb4", force: :cascade do |t|
+  create_table "rails_url_shortener_urls", force: :cascade do |t|
     t.string "owner_type"
-    t.bigint "owner_id"
+    t.integer "owner_id"
     t.text "url", null: false
     t.string "key", limit: 10, null: false
     t.string "category"
@@ -43,8 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_224131) do
     t.index ["owner_type", "owner_id"], name: "index_rails_url_shortener_urls_on_owner"
   end
 
-  create_table "rails_url_shortener_visits", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "url_id"
+  create_table "rails_url_shortener_visits", force: :cascade do |t|
+    t.integer "url_id"
     t.string "ip"
     t.string "browser"
     t.string "browser_version"
@@ -60,12 +60,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_224131) do
     t.index ["url_id"], name: "index_rails_url_shortener_visits_on_url_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 end

@@ -18,7 +18,7 @@ class ActiveSupport::TestCase
       .with(
         body: { 'response' => response, 'secret' => ENV['SECRET_KEY'] },
         headers: { 'Connection' => 'close', 'Content-Type' => 'application/x-www-form-urlencoded',
-                   'Host' => 'hcaptcha.com', 'User-Agent' => 'http.rb/5.1.0' }
+                   'Host' => 'hcaptcha.com', 'User-Agent' => 'http.rb/5.2.0' }
       ).to_return(status: 200, body: %(
           {
             "success": "#{to_return}"
