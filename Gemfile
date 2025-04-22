@@ -95,3 +95,5 @@ gem 'sentry-ruby', '~> 5.11'
 gem 'sentry-rails', '~> 5.11'
 
 gem 'ostruct', '~> 0.6.1'
+
+gem 'oas_rails', '~> 0.13.0'

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :urls, class_name: 'RailsUrlShortener::Url', as: 'owner'
+  has_many :sessions
 
   has_secure_password
 

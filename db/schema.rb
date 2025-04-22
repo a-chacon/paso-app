@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_04_14_201402) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_21_184408) do
   create_table "rails_url_shortener_ipgeos", force: :cascade do |t|
     t.string "ip"
     t.string "country"
@@ -60,6 +60,17 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_14_201402) do
     t.index ["url_id"], name: "index_rails_url_shortener_visits_on_url_id"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "ip_address"
+    t.string "user_agent"
+    t.boolean "active", default: true
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -67,4 +78,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_14_201402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "sessions", "users"
 end
